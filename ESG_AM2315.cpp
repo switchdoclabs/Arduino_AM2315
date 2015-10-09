@@ -66,7 +66,7 @@ boolean ESG_AM2315::readData(float *dataArray) {
 
 // leave in C 
 //  dataArray[1] = (temp * 1.8)+32; 
-
+  dataArray[1] = temp;
   return true;
 }
 
