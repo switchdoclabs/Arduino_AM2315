@@ -1,6 +1,8 @@
 /*************************************************** 
   This is a library for the AM2315 Humidity & Temp Sensor
 
+  SwitchDoc Labs May 2016 - Fixed Delays and Fixed Double Read problem
+
   Designed specifically to work with the AM2315 sensor from Adafruit
   ----> https://www.adafruit.com/products/1293
 
@@ -29,10 +31,9 @@ boolean ESG_AM2315::readData(float *dataArray) {
   
   Wire.beginTransmission(AM2315_I2CADDR);
   Wire.write(AM2315_READREG);
-  Wire.write(0x00);  // start at address 0x0
-  Wire.write(4);  // request 4 bytes data
   Wire.endTransmission();
 
+  delay(50);
 
   // for reasons unknown we have to send the data twice :/
   // whats the bug here?
@@ -41,7 +42,8 @@ boolean ESG_AM2315::readData(float *dataArray) {
   Wire.write(0x00);  // start at address 0x0
   Wire.write(4);  // request 4 bytes data
   Wire.endTransmission();
-  
+ 
+  delay(50); 
 
   Wire.requestFrom(AM2315_I2CADDR, 8);
   for (uint8_t i=0; i<8; i++) {

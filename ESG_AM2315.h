@@ -1,6 +1,8 @@
 /*************************************************** 
   This is a library for the AM2315 Humidity Pressure & Temp Sensor
 
+  Fixed Double Read issue - SwitchDoc Labs May 2016
+
   Designed specifically to work with the AM2315 sensor from Adafruit
   ----> https://www.adafruit.com/products/1293
 
