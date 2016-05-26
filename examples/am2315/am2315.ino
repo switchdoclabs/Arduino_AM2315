@@ -37,8 +37,9 @@ float dataAM2315[2];  //Array to hold data returned by sensor.  [0,1] => [Humidi
 boolean OK;  // 1=successful read
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("AM2315 Test!");
+  Wire.begin();
  }
 
 void loop() {
